@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+        <!-- Masthead-->
+        <header id="submission" class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <h1 class="masthead-heading text-uppercase mb-0">How much is your unit worth?</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="col">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+                        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Postal Code</label>
+                                    <input class="form-control" id="address" type="number" min="100000" max="900000" max placeholder="Postal Code" required="required" data-validation-required-message="Please enter your postal code." />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Floor Level</label>
+                                    <input class="form-control" id="level" type="number" min="1" max="50" placeholder="Floor Level" required="required" data-validation-required-message="Please enter your unit floor level." />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Floor Area in Sqft</label>
+                                    <input class="form-control" id="area" type="number" min="330" max="2700" placeholder="Floor Area in Sqft" required="required" data-validation-required-message="Please enter your unit floor area." />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Remaining Lease</label>
+                                    <input class="form-control" id="lease" type="number" min="40" max="99" placeholder="Remaining Lease in Years" required="required" data-validation-required-message="Please enter the remaining lease of your unit.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <br />
+                            <div id="success"></div>
+                            <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Hidden Panel-->
+        <section id="results" class="page-section hidden">
+            <div class="container">
+                <!-- Prediction Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Prediction Result</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="col-lg-12 mb-5 mb-lg-5">
+                    <h1 class="price text-center"></h1>
+                </div>
+            <!-- </div>
+        </section>
+        <section id="results" class="page-section hidden">
+            <div class="container"> -->
+                <div class="row">
+                    <div class="col-lg-6 mx-auto mb-5 mb-lg-5">
+                        <h3 class="text-uppercase mb-4 ml-4">Your location</h3>
+                        <div class="loader"></div>
+                        <div id="mapid" class="mx-auto"></div>
+                    </div>
+                    <div class="col-lg-6 mx-auto mb-5 mb-lg-5">
+                        <h3 class="text-uppercase mb-4 ml-4">Live Listings Nearby</h3>
+                        <div class="loader"></div>
+                        <div id="listingTable" class="max-height-control mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Script -->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+{% endblock %}
